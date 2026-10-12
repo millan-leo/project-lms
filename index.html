@@ -1,0 +1,114 @@
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+    <!--Sirve para adaptarse al tamaño del celular jeje-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>LSM-Aprende con nosotros</title>
+        <!--Tipografia, se usa directamente de google jejejej, pero si no hay internet se va a la predeterminada-->
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+        <!-- Conecta con la ventana de estilos-->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div class="contenedor">
+                <div class="logo">
+                    <i>✋</i>Manos
+                </div>
+                <nav id="nav">
+                    <button class="activo" data-t="inicio">Inicio</button>
+                    <button data-t="cursos">Cursos</button>
+                    <button data-t="traductor">Texto a Señas</button>
+                    <button data-t="camara">Señas a letras</button>
+                </nav>
+            </div>
+        </header>
+        <!-- CONTENIDO PRINCIPAL -->
+         <main class="contenedor">
+            <!-- PANTALLA INICIO -->
+            <section id="inicio" class="activo">
+                <div class="portada">
+                    <div>
+                        <h1>Aprende lengua de Señas Méxicana a tu Ritmo</h1>
+                        <p class="intro">
+                            Lecciones cortas, un traductor que te muestra cada seña y una camara
+                            te dice si lo estas haciendo bien
+                        </p>
+                        <div class="fila">
+                            <button class="boton">Empezar a aprender</button>
+                            <button class="boton claro">Probar la camara</button>
+                        </div>
+                    </div>
+                    <!--CUADRADOS GRANDES TIPO ABECEDARIO-->
+                    <div class="portada-letras">
+                        <span>A</span>
+                        <span>B</span>
+                        <span>C</span>
+                        <span>D</span>
+                        <span>E</span>
+                        <span>F</span>
+                    </div>
+                </div>
+                <div class="tres">
+                    <!-- TARJETAS INFORMATIVAS DE CADA FUNCION -->
+                    <div class="tarjeta">
+                        <h3>Cursos</h3>
+                        <p>Abecedario, numeros, saludos, con un quiz al final de cada lección</p>
+                    </div>
+
+                    <div class="tarjeta">
+                        <h3>Texto a señas</h3>
+                        <p>Escribe una frase y mira que hacer, letra por letra o palabra completa</p>
+                    </div>
+
+                    <div class="tarjeta">
+                        <h3>Señas a texto</h3>
+                        <p>Muestra tu mano y la app lee, y escribe la letra. Tambien puede leerla en voz alta</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PANTALLA CURSO -->
+            <section id="cursos">
+                <div></div>
+            </section>
+
+            <!-- PANTALLA TEXTOS A SEÑAS -->
+            <section id="traductor">
+                <h2>Texto a señas</h2>
+            <p class="intro">
+                Escribe una palabra o frase. Si no tenemos la seña de una palabra,
+                la deletreamos.
+            </p>
+
+            <div class="fila">
+                <input type="text" id="txt" value="hola" aria-label="Texto a traducir" maxlength="40">
+                <!-- input = caja donde el usuario escribe.
+                     id="txt" = nombre para que JavaScript la encuentre.
+                     value = texto inicial. maxlength = máximo de caracteres.
+                     aria-label = nombre para lectores de pantalla -->
+
+                <button class="boton" id="go">Mostrar señas</button>
+                <!-- id="go" = JavaScript le asigna la acción de dibujar las señas -->
+            </div>
+
+            <div class="recuadros" id="tiles"></div>
+            <!-- Caja VACÍA a propósito: JavaScript la llena con los recuadros de cada seña -->
+
+            <p class="nota">
+                Vista previa: aquí irán las fotos de cada seña.
+                Por ahora cada recuadro es un marcador.
+            </p>
+            </section>
+
+            <!-- PANTALA SEÑAS A TEXTO -->
+            <section id="camara">
+                <div></div>
+            </section>
+         </main>
+         <footer>
+            <h3>Hecho con amor</h3>
+         </footer>
+         <script src="script.js"></script>
+    </body>
+</html>

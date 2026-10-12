@@ -1,0 +1,243 @@
+/*Esto es para generalizar los colores y no estar poniendo el codigo todo el tiempo jeje*/
+:root{
+    --fondo: #F5F9FD;
+    --tarjeta: #FFFFFF;
+    --texto: #12263F;
+    --texto-suave: #5C7390;
+    --borde: #DCE7F3;
+    --azul: #2F6FEB;
+    --azul-claro: #E3EEFD;
+    --celeste: #8DBBFF;
+}
+html{
+    /*Hace que deje un pequeño espacio para que el menu no tape texto jeje*/
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Figtree, system-ui, sans-serif;
+    line-height: 1.5;
+}
+.contenedor{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;;
+}
+main.contenedor{
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 24px;
+    padding: 40px;
+    margin: 32px auto;
+}
+
+/*MENU SUPERIOR OJO PORQUE SE ME PIERDE Y ME REVUELVO*/
+
+header{
+    background: var(--tarjeta);
+    border-bottom: 1px solid var(--borde);
+    /*para dejar pegado el menu de arriba cuando bajemos para abajo nimodo que para arriba mensos*/
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    /*Lo pone por encima de todo el contenido*/
+    z-index: 5;
+}
+header .contenedor{
+    /*pone logo y menú en la misma fila */
+    display: flex;
+    /*los alinea verticalmente al centro*/
+    align-items: center;
+    /*logo a la izquierda y pone el menu a la derecha*/
+    justify-content: space-between;
+    /*espacio entre ellos */
+    gap: 12px;
+    /*si no caben, el menú baja a otra línea */
+    flex-wrap: wrap;
+    /*espacio arriba de la barra*/
+    padding-top: 12px;
+    /*espacio abajo de ka barra*/
+    padding-bottom: 12px;
+}
+
+/* LOGO */
+
+.logo{
+    font-family: Fraunces, Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.logo i{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--azul);
+    display: inline-grid;
+    place-items: center;
+    color: #fff;
+    font-style: normal;
+    font-size: 0.9rem;
+}
+nav{
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+}
+nav button{
+    border: 0;
+    background: none;
+    color: var(--texto-suave);
+    /*Grosor, tamaño y tipografia*/
+    font: 600 0.95rem Figtree, sans-serif;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+/*Obscurese el texto cuando el mouse pasa por el boton*/
+nav button:hover{
+    color: var(--texto);
+}
+/*Cuando este en un boton (ventana) pone como un circulito azul asi bien chiclebomba, cambia con cada ventana pero aun no meto js*/
+nav button.activo{
+    background: var(--azul-claro);
+    color: var(--azul);
+}
+nav button:focus-visible{
+    outline: 3px solid var(--celeste);
+    outline-offset: 2px;
+}
+
+/* SECCIONES */
+section{
+    display: none;
+    padding: 0;
+}
+
+/* Marca solo el activo y quita el otro */
+section.activo{
+    display: block;
+}
+
+/*DISEÑO DE LOS TEXTOS JEJE*/
+h1{
+    font-family: Fraunces, Georgia, serif;
+    /*(mínimo, ideal, máximo) el tamaño crece con la pantalla pero con límites*/
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    margin: 0 0 14px;
+    /* el ch ancho de un carácter*/
+    max-width: 16ch;
+    font-weight: 600;
+}
+
+h2{
+    font-family: Fraunces, Georgia, serif;
+    font-size: 1.7rem;
+    margin: 0 0 6px;
+    font-weight: 600;
+}
+
+.intro{
+    color: var(--texto-suave);
+    /* evita líneas demasiado largas, que cansan al leer */
+    max-width: 52ch;
+    margin: 0 0 24px;
+}
+
+.nota{
+    /* texto pequeño para notas */
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    margin-top: 10px;
+}
+
+.boton{
+    background-color: var(--azul);
+    color: #fff;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font: 600 1rem  Figtree, sans-serif;
+    cursor: pointer;
+}
+
+.boton.claro{
+    background-color: var(--azul-claro);
+    color: var(--azul);
+}
+
+.fila{
+    display: flex;
+    gap: 10px;
+    /*si no caben baja a la sig fila ñenguele*/
+    flex-wrap: wrap;
+}
+
+/* PRINCIPAL POIA*/
+
+.portada{
+    display: grid;
+    /* 2 columnas; la izquierda un poco más ancha */
+    grid-template-columns: 1.2fr 1fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.portada-letras{
+    background: linear-gradient(160deg, var(--azul-claro), var(--tarjeta));
+    border: 1px solid var(--borde);
+    border-radius: 28px;
+    padding: 28px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.portada-letras span{
+    aspect-ratio: 1;
+    border-radius: 18px;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    display: grid;
+    place-items: center;
+    font: 600 2rem Fraunces, serif;
+    color: var(--azul);
+}
+
+ /*nth-child(5) es para que el quinto cuadro resalte casi como azul y la letra se ponga blanca*/
+.portada-letras span:nth-child(5) {
+  background: var(--azul);
+  color: #fff;
+}
+
+.tres{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 36px;
+}   
+.tarjeta{
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.tarjeta h3{
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+}
+
+.tarjeta p{
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 0.93rem;
+}
