@@ -223,7 +223,10 @@ h2{
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     margin-top: 36px;
-}   
+}
+
+/*TARJETAS Y VENTANA DE CURSO*/
+
 .tarjeta{
     background: var(--tarjeta);
     border: 1px solid var(--borde);
@@ -240,4 +243,119 @@ h2{
     margin: 0;
     color: var(--texto-suave);
     font-size: 0.93rem;
+}
+
+.dos-columnas{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.curso{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.curso .encabezado{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.etiqueta{
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: var(--azul-claro);
+    color: var(--azul);
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+
+.barra{
+    height: 8px;
+    background-color: var(--azul-claro);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.barra b{
+    display: block;
+    height: 100%;
+    background-color: var(--azul);
+    border-radius: 99px;
+}
+
+/*TRADUCTOR TEXTOS A SEÑAS*/
+
+.recuadros{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    min-height: 30px;
+}
+
+.recuadro{
+    width: 60px;
+    background-color: var(--azul);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 6px;
+}
+
+.recuadro .imagen{
+    aspect-ratio: 1;
+    border-radius: 9px;
+    background: var(--azul);
+    display: flex;
+    place-items: center;
+    font: 600 1.3rem Fraunces, serif;
+    color: var(--azul);
+}
+
+.recuadro.actual{
+    border-color: var(--azul);
+    box-shadow: 0 0 0 3px var(--azul-claro);
+}
+
+.espacio{
+    width: 18px;
+}
+
+.mano-escena{
+    position: relative;
+    max-width: 420px;
+    aspect-ratio: 1;
+    margin-top: 20px;
+    background: linear-gradient(160deg, var(--azul-claro), var(--tarjeta));
+    border: 1px solid var(--borde);
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.mano-escena canvas{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.mano-letra{
+    position: absolute;
+    left: 18px;
+    top: 12px;
+    font: 600 2.6rem Fraunces, serif;
+    color: var(--azul);
+}
+
+.mano-aviso{
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    color: var(--texto-suave);
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 999px;
 }

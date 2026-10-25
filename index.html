@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
     <!--Sirve para adaptarse al tamaño del celular jeje-->
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <title>LSM-Aprende con nosotros</title>
+        <title>Flouby</title>
         <!--Tipografia, se usa directamente de google jejejej, pero si no hay internet se va a la predeterminada-->
         <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
         <!-- Conecta con la ventana de estilos-->
@@ -13,7 +13,7 @@
         <header>
             <div class="contenedor">
                 <div class="logo">
-                    <i>✋</i>Manos
+                    <i>✋</i>Flouby
                 </div>
                 <nav id="nav">
                     <button class="activo" data-t="inicio">Inicio</button>
@@ -41,12 +41,12 @@
                     </div>
                     <!--CUADRADOS GRANDES TIPO ABECEDARIO-->
                     <div class="portada-letras">
-                        <span>A</span>
-                        <span>B</span>
-                        <span>C</span>
-                        <span>D</span>
-                        <span>E</span>
                         <span>F</span>
+                        <span>L</span>
+                        <span>O</span>
+                        <span>U</span>
+                        <span>B</span>
+                        <span>Y</span>
                     </div>
                 </div>
                 <div class="tres">
@@ -70,27 +70,91 @@
 
             <!-- PANTALLA CURSO -->
             <section id="cursos">
-                <div></div>
+                <h2>Cursos</h2>
+                <p class="intro">Elige una leccion, tu progreso se guardara en esta Cuenta</p>
+                <div class="dos-columnas">
+
+                    <!--CURSO 1-->
+                    <div class="tarjeta curso">
+                        <div class="encabezado">
+                            <h3>Abedecario Manual</h3>
+                            <span class="etiqueta">Nivel 1</span>
+                        </div>
+                        <p>Las letras estaticas primero, despues las que llevan movimiento</p>
+                        <div class="barra">
+                            <b style="width: 60%;"></b>
+                        </div>
+                        <small>12 de 20 lecciones</small>
+                    </div>
+
+                    <!--CURSO DOS-->
+                    <div class="tarjeta curso">
+                        <div class="encabezado">
+                            <h3>Numeros del 0 al 10</h3>
+                            <span class="etiqueta">Nivel 1</span>
+                        </div>
+                        <p>Cuenta con las manos y practica con minis retos</p>
+                        <div class="barra">
+                            <b style="width: 25%;"></b>
+                        </div>
+                        <small>3 de 10 lecciones</small>
+
+                    <!--CURSO TRES-->
+                    </div>
+                    <div class="tarjeta curso">
+                        <div class="encabezado">
+                            <h3>Saludos y cortesia</h3>
+                            <span class="etiqueta">Nivel 2<span>
+                        </div>
+                        <p>Hola, gracias, profavor, adios etc</p>
+                        <div class="barra">
+                            <b style="width: 0%;"></b>
+                        </div>
+                        <small>Sin empezar</small>
+
+                    <!--CURSO 4-->
+                    </div>
+                    <div class="tarjeta curso">
+                        <div class="encabezado">
+                            <h3>Frases del Día</h3>
+                            <span class="etiqueta">Proximamente</span>
+                        </div>
+                        <p>Primeras frases con movimiento y expresion facial</p>
+                        <div class="barra">
+                            <b style="width: 0%;"></b>
+                        </div>
+                        <small>En desarrollo</small>
+                    </div>
+                </div>
             </section>
 
             <!-- PANTALLA TEXTOS A SEÑAS -->
             <section id="traductor">
                 <h2>Texto a señas</h2>
-            <p class="intro">
+                <p class="intro">
                 Escribe una palabra o frase. Si no tenemos la seña de una palabra,
                 la deletreamos.
             </p>
 
             <div class="fila">
                 <input type="text" id="txt" value="hola" aria-label="Texto a traducir" maxlength="40">
-                <!-- input = caja donde el usuario escribe.
-                     id="txt" = nombre para que JavaScript la encuentre.
-                     value = texto inicial. maxlength = máximo de caracteres.
-                     aria-label = nombre para lectores de pantalla -->
 
                 <button class="boton" id="go">Mostrar señas</button>
-                <!-- id="go" = JavaScript le asigna la acción de dibujar las señas -->
-            </div>
+
+                <select id="velocidad" aria-label="Velocidad de Animacion">
+                    <option value="1">Rapida</option>
+                    <option value="2">Normal</option>
+                    <option value="0.6">Lenta</option>
+                </select>
+                </div>
+
+                <div class="mano-escena">
+                    <canvas id="mano" width="480" height="480"></canvas>
+                    <span class="mano-letra" id="mano-letra"></span>
+                    <span class="mano-aviso" id="mano-aviso" hidden></span>
+                </div>
+                <div class="recuadros" id="title"></div>
+                <p class="nota"></p>
 
             <div class="recuadros" id="tiles"></div>
             <!-- Caja VACÍA a propósito: JavaScript la llena con los recuadros de cada seña -->

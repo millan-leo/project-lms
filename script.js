@@ -19,3 +19,6 @@ botonesMenu.forEach(function (boton) {
     mostrar(boton.dataset.t);
   };
 });
+//Cursos
+
+//Texto a señas
