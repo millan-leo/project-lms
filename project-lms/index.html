@@ -1,0 +1,507 @@
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+    <!--Sirve para adaptarse al tamaño del celular jeje-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Flouby</title>
+        <!--Tipografia, se usa directamente de google jejejej, pero si no hay internet se va a la predeterminada-->
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+        <!--Conecta con la ventana de estilos-->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div class="contenedor">
+                <a href="index.html" class="logo">
+                    <img src="imagenes/logo.png" alt="Flouby">
+                    Flouby
+                </a>
+                <nav id="nav">
+                    <button class="activo" data-t="inicio">Inicio</button>
+                    <button data-t="cursos">Cursos</button>
+                    <button data-t="traductor">Texto a Señas</button>
+                    <button data-t="camara">Señas a letras</button>
+                    <button data-t="comunidad">Red Social</button>
+                </nav>
+            </div>
+        </header>
+        <!-- CONTENIDO PRINCIPAL -->
+         <main class="contenedor">
+            <!-- PANTALLA INICIO -->
+            <section id="inicio" class="activo">
+                <div class="portada">
+                    <div>
+                        <h1>Aprende lengua de Señas Méxicana a tu Ritmo</h1>
+                        <p class="intro">
+                            Lecciones cortas, un traductor transforma texto a seña cada señas,
+                            otro traductor que te convierte señas a texto y una red social interactiva.
+                        </p>
+                        <div class="fila">
+    <button class="boton" data-go="cursos" type="button">
+        Empezar a aprender
+    </button>
+
+    <button class="boton claro" data-go="camara" type="button">
+        Probar la cámara
+    </button>
+</div>
+                    </div>
+                    <!--CUADRADOS GRANDES TIPO ABECEDARIO-->
+                    <div class="portada-letras">
+                        <span>F</span>
+                        <span>L</span>
+                        <span>O</span>
+                        <span>U</span>
+                        <span>B</span>
+                        <span>Y</span>
+                    </div>
+                </div>
+                <div class="tres">
+                    <!-- TARJETAS INFORMATIVAS DE CADA FUNCION -->
+                    <div class="tarjeta">
+                        <h3>Cursos</h3>
+                        <p>Abecedario, numeros, saludos, con un quiz al final de cada lección</p>
+                    </div>
+
+                    <div class="tarjeta">
+                        <h3>Texto a señas</h3>
+                        <p>Escribe una frase y mira que hacer, letra por letra o palabra completa</p>
+                    </div>
+
+                    <div class="tarjeta">
+                        <h3>Señas a texto</h3>
+                        <p>Muestra tu mano y la app lee, y escribe la letra. Tambien puede leerla en voz alta</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PANTALLA CURSOS -->
+<section id="cursos">
+
+    <div id="cursos-bloqueo">
+        <p class="intro">
+            Inicia sesión o crea una cuenta para acceder a las lecciones
+            y guardar tu progreso.
+        </p>
+
+        <form class="tarjeta cuenta-caja" id="form-auth" novalidate>
+            <input
+                type="text"
+                id="auth-nombre"
+                placeholder="Tu nombre"
+                maxlength="30"
+                aria-label="Nombre"
+                hidden
+            >
+
+            <input
+                type="email"
+                id="auth-correo"
+                placeholder="Correo"
+                aria-label="Correo"
+                autocomplete="email"
+            >
+
+            <input
+                type="password"
+                id="auth-clave"
+                placeholder="Contraseña (mínimo 6)"
+                aria-label="Contraseña"
+                autocomplete="current-password"
+            >
+
+            <p class="error" id="auth-error" aria-live="polite"></p>
+
+            <button class="boton" id="auth-enviar" type="submit">
+                Iniciar sesión
+            </button>
+
+            <button class="enlace" id="auth-cambiar" type="button">
+                Crear una cuenta
+            </button>
+        </form>
+    </div>
+
+    <div class="encabezado-cursos">
+        <h2>Aprende LSM</h2>
+
+        <p class="intro">
+            Seis cursos para comenzar a comunicarte en Lengua de Señas Mexicana.
+            Estudia las lecciones, realiza las actividades y completa las
+            evaluaciones.
+        </p>
+    </div>
+
+    <!-- PROGRESO GENERAL -->
+    <div class="tarjeta progreso-general">
+        <h3>Tu progreso de aprendizaje</h3>
+
+        <p id="texto-progreso">0 de 6 cursos completados</p>
+
+        <div class="barra" aria-label="Progreso general">
+            <b id="barra-general" style="width: 0%"></b>
+        </div>
+    </div>
+
+    <!-- AQUÍ JAVASCRIPT GENERARÁ LOS SEIS CURSOS -->
+    <div id="lista-cursos" class="lista-tarjetas-cursos"></div>
+
+</section>
+
+<!-- PANTALLA DE LECCIONES -->
+<section id="leccion">
+
+    <button class="boton claro" id="volver-cursos" type="button">
+        ← Volver a los cursos
+    </button>
+
+    <div class="tarjeta leccion-cabecera">
+        <span class="etiqueta" id="leccion-nivel">
+            NIVEL 1
+        </span>
+
+        <h2 id="leccion-titulo">Nombre del curso</h2>
+
+        <p class="intro" id="leccion-descripcion"></p>
+    </div>
+
+    <!-- CONTENIDO EDUCATIVO -->
+    <div id="contenido-explicacion" class="tarjeta contenido-leccion">
+
+        <div class="leccion-progreso">
+            <span id="paso-actual">Lección 1</span>
+
+            <div class="barra">
+                <b id="barra-leccion" style="width: 0%"></b>
+            </div>
+        </div>
+
+        <div id="ejemplo-visual" class="ejemplo-visual">
+            <span aria-hidden="true">✋</span>
+            <p>Material de aprendizaje</p>
+        </div>
+
+        <span class="numero-paso" id="numero-paso">01</span>
+
+        <h3 id="titulo-explicacion">Introducción</h3>
+
+        <div id="texto-explicacion"></div>
+
+        <p class="nota" id="nota-leccion"></p>
+    </div>
+
+    <!-- EVALUACIÓN -->
+    <div id="actividad" class="tarjeta actividad-leccion" hidden>
+
+        <h3>Comprueba lo que aprendiste</h3>
+
+        <p id="paso-actual-actividad"></p>
+
+        <h4 id="pregunta-quiz"></h4>
+
+        <div id="opciones-quiz" class="opciones-quiz"></div>
+
+        <p
+            id="resultado-quiz"
+            class="resultado-quiz"
+            aria-live="polite"
+        ></p>
+
+    </div>
+
+    <!-- NAVEGACIÓN -->
+    <div class="fila botones-leccion">
+
+        <button
+            class="boton claro"
+            id="paso-anterior"
+            type="button"
+            disabled
+        >
+            Anterior
+        </button>
+
+        <button
+            class="boton"
+            id="paso-siguiente"
+            type="button"
+        >
+            Continuar
+        </button>
+
+    </div>
+
+</section>
+            <!-- PANTALLA TEXTOS A SEÑAS -->
+            <section id="traductor">
+                <h2>Texto a señas</h2>
+                <p class="intro">
+                Escribe una palabra o frase, nuestro modelo de mano de 3 dimensiones lo hara para que tu puedas replicarla,
+                tambien puedes moverla para verla desde otro angulo
+            </p>
+
+            <div class="fila">
+                <input type="text" id="txt" value="hola" aria-label="Texto a traducir" maxlength="40">
+
+                <button class="boton" id="go">Mostrar señas</button>
+
+                <select id="velocidad" aria-label="Velocidad de Animacion">
+                    <option value="1">Rapida</option>
+                    <option value="2">Normal</option>
+                    <option value="0.6">Lenta</option>
+                </select>
+                </div>
+
+                <div class="mano-escena">
+                    <canvas id="mano" width="480" height="480"></canvas>
+                    <span class="mano-letra" id="mano-letra"></span>
+                    <span class="mano-ayuda" id="mano-ayuda">Arrastra para girar</span>
+                    <span class="mano-aviso" id="mano-aviso" hidden>Posible error al interpretarla correctamente</span>
+                </div>
+
+                <!--Esta vacia ya que con el js lo llenaremos jeje-->
+            
+                <div class="recuadros" id="tiles"></div>
+
+                <p class="nota">
+                    Arrastra la mano para girarla
+                </p>
+            </section>
+
+            <!-- PANTALA SEÑAS A TEXTO -->
+            <section id="camara">
+                <h2>Señas a Texto</h2>
+                <p class="intro">Haz una seña para que la camara la detecte y te la traduzca automaticamente</p>
+                <div class="pantalla">
+                    <span class="indicador">Vista previa</span>
+                    La camara se mostrara aqui
+                </div>
+                <div class="resultado">
+    <div class="detectado" id="said" aria-live="polite"></div>
+
+    <div class="acciones">
+        <button class="boton claro" id="clear" type="button">
+            Borrar
+        </button>
+
+        <button class="boton" id="speak" type="button">
+            Escuchar
+        </button>
+    </div>
+</div>
+                <p class="nota">La camara real se implementara mas tarde con MediPipe</p>
+            </section>
+
+            <!--RED SOCIAL Y COMUNIDADESSSS-->
+            <section id="comunidad">
+                <div class="com-rejilla">
+                    <aside class="com-lateral">
+                        <div class="tarjeta perfil-mini">
+                            <div class="avatar grande">L</div>
+                            <div>
+                                <h3>Leonardo</h3>
+                                <p>Habla español y lsm</p>
+                            </div>
+                        </div>
+
+                        <div class="estadisticas">
+                            <div><b>10</b><span>Seguidores</span></div>
+                            <div><b>0</b><span>Siguiendo</span></div>
+                            <div><b>67</b><span>Publicaciones</span></div>
+                        </div>
+
+                        <div class="tarjeta mensajes">
+                            <div class="encabezado">
+                                <h3>Mensajes</h3>
+                                <button class="boton claro chico">Nuevo</button>
+                            </div>
+
+                        <label class="buscador">
+                            <svg class="icono" ></svg>
+                            <input type="text" placeholder="Buscar personas" aria-label="Buscar personas">
+                        </label>
+
+                        <div class="filtros">
+                            <button class="activo">Todos</button>
+                            <button>Sin leer</button>
+                            <button>Conectados</button>
+                        </div>
+
+                        <ul class="chats">
+                            <li class="chat">
+                                <div class="avatar en-linea">YS</div>
+                                <div class="chat-texto">
+                                    <b>Yanet Stoto</b>
+                                    <span>cuando aprenderemos de nuevo?</span>
+                                </div>
+                                <div class="chat-meta">
+                                    <small>10:36</small>
+                                    <span class="insignia">2</span>
+                                </div>
+                            </li>
+                    
+                            <li class="chat">
+                                <div class="avatar">JS</div>
+                                <div class="chat-texto">
+                                    <b>Rocio</b>
+                                    <span>Te extraño</span>
+                                </div>
+                                <div class="chat-meta">
+                                    <small>Ayer</small>
+                                    <span class="insignia">1</span>
+                                </div>
+                            </li>
+                            <li class="chat">
+                                <div class="avatar en-linea">BP</div>
+                                <div class="chat-texto">
+                                    <b>Barbara Pedraza</b>
+                                    <span>Ya aprendi lsm</span>
+                                </div>
+                                <div class="chat-meta">
+                                    <small>Martes</small>
+                                </div>
+                            </li>
+                            <li class="chat">
+                                <div class="avatar">PR</div>
+                                <div class="chat-texto">
+                                    <b>Prototipos</b>
+                                    <span>Merecen ganar :D</span>
+                                </div>                    
+                                <div class="chat-meta">
+                                    <small>Lunes</small>
+                                </div>
+                            </li>
+                        </ul>
+                        </div>
+                    </aside>
+
+                    <!--Filtros para busqueda-->
+                    <div class="com-central">
+                        <div class="pestañas">
+                            <button>Reciente</button>
+                            <button class="activo">Para ti</button>
+                            <button>Ayuda a otros</button>
+                            <button>Hablantes lsm</button>
+                        </div>
+
+                        <!--Esta parte sera para la para subir publicaciones asi como el de twitter o algo por el estilo-->
+                        <div class="tarjeta nueva-publicacion">
+                            <div class="avatar">L</div>
+                            <div class="nueva-cuerpo">
+                            <textarea textarea placeholder="Comparte algo con la comunidad" aria-label="Escribe tu publicación"></textarea>
+                            <div class="nueva-acciones">
+                                <div class="fila">
+                                    <button class="boton claro chico">
+                                        <svg class="icono">
+                                            <use href="#i-foto"/>
+                                        </svg> Foto
+                                    </button>
+                                    <button class="boton claro chico">
+                                        <svg class="icono">
+                                            <use href="#i-etiqueta"/>
+                                        </svg> Etiqueta
+                                    </button>
+                                </div>                       
+                                <button class="boton">Publicar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--EJEMPLO DE PRIMERA PUBLICACION-->
+                    <article class="tarjeta publicacion">
+                        <div class="pub-encabezado">
+                            <div class="avatar">YS</div>
+                            <div class="pub-quien">
+                                <b>Yanet Soto</b>
+                                <small>Habla español y aprende lsm</small>
+                            </div>
+                            <button class="boton claro chico">Seguir</button>
+                            <button class="icono-boton" aria-label="Más opciones">
+                                <svg class="icono"><use href="#i-mas"/></svg>
+                            </button>
+                        </div>
+                        <p class="pub-texto">Holaaaa, soy nueva en esta app y quiero aprender lsm, quien puede practicar conmigo?</p>
+                        <img class="foto-pub" src="imagenes/saludo.jpg.png" alt="Descripción de lo que se ve en la imagen" loading="lazy">
+                        <span class="etiqueta">Mi primer día</span>
+
+                        <div class="pub-acciones">
+                            <button class="accion">
+                                <svg class="icono">
+                                    <use href="#i-me-gusta"/>
+                                </svg> 54
+                            </button>
+
+                            <button class="accion">
+                                <svg class="icono">
+                                    <use href="#i-comentar"/>
+                                </svg> 12
+                            </button>
+
+                            <button class="accion derecha" aria-label="Compartir">
+                                <svg class="icono"><use href="#i-compartir"/></svg>
+                            </button>
+                        </div>
+                        <div class="comentarios">
+                            <p>
+                                <b>Prototipos:</b> Wow, tu proyecto flouby merece sacar 10
+                            </p>
+                            <p>
+                                <b>Rocio:</b> Yo tambien estoy empezando  y estoy muy emocionada
+                            </p>
+                            <a href="#">Ver todos los 12 comentarios</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+         </main>
+
+         <!-- Pie de Pagina-->
+         <footer class="footer">
+            <div class="footer-left">
+                <a href="index.html" class="footer-logo">
+                    <i class="footer-logo-icon">✋</i>
+                    <div class="footer-logo-text">
+                        <span class="f-title">Flouby</span>
+                        <span class="f-subtitle">La comunicacicon es el Flow de todos</span>
+                    </div>    
+                </a>
+            <p>Pagina Web para ayudar a las personas sordas y facilitar la comunicacion de estas</p>
+        </div>  
+    </div>
+         </footer>
+         <!--Conecta con las ventanas antes creadas-->
+        <script type="module" src="firebase.js"></script>
+<script src="script.js"></script>
+<script src="señas.js"></script>
+<script src="cursos.js"></script>
+    </body>
+
+    <!--DISEÑO PARA LOS BOTONES TIPICOS DE REDES SOCIALES, ESTE DISEÑO O PARECIDOS SE PUEDEN ENCONTAR
+    EN BIBLIOTECAS GRATIS EN INTERNET JEJEW-->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <symbol id="i-buscar" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>
+    </symbol>
+    <symbol id="i-foto" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="16" rx="3"/>
+        <circle cx="9" cy="10" r="1.5"/><path d="M4 18l5-5 4 4 3-3 4 4"/>
+    </symbol>
+    <symbol id="i-etiqueta" viewBox="0 0 24 24">
+        <path d="M9 4L7 20M17 4l-2 16M4 9h16M3 15h16"/>
+    </symbol>
+    <symbol id="i-me-gusta" viewBox="0 0 24 24">
+        <path d="M12 20s-7-4.4-9.2-8.6C1 8.2 3 4.5 6.7 4.5c2 0 3.7 1 5.3 3 1.6-2 3.3-3 5.3-3 3.7 0 5.7 3.7 3.9 6.9C19 15.6 12 20 12 20z"/>
+    </symbol>
+    <symbol id="i-comentar" viewBox="0 0 24 24">
+        <path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12z"/>
+    </symbol>
+    <symbol id="i-compartir" viewBox="0 0 24 24">
+        <path d="M12 15V4m0 0L8 8m4-4l4 4M5 13v6h14v-6"/>
+    </symbol>
+    <symbol id="i-mas" viewBox="0 0 24 24">
+        <circle cx="5" cy="12" r="1.5"/>
+        <circle cx="12" cy="12" r="1.5"/>
+        <circle cx="19" cy="12" r="1.5"/>
+    </symbol>
+</svg>
+</html>
